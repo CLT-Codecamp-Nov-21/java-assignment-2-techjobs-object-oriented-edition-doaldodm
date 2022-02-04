@@ -51,4 +51,19 @@ public class JobTest {
         Job jobD = new Job("Front-End Developer", new Employer("LaunchCode"), new Location("Charlotte"), new PositionType("Full Time"), new CoreCompetency("JavaScript"));
         assertFalse(jobC.equals(jobD));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        int length = jobA.toString().length();
+        assertEquals('\n', jobA.toString().charAt(0));
+        assertEquals('\n', jobA.toString().charAt(length - 1));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        assertEquals("\nID: 1\nName: Front-End Developer\nEmployer: LaunchCode\nLocation: Charlotte\nPosition Type: Full Time\nCore Competency: JavaScript\n", jobA.toString());
+    }
+
+
+
 }
