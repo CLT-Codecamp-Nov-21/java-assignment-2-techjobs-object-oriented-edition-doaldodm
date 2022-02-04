@@ -95,9 +95,17 @@ public class Job {
 
     @Override
     public String toString() {
-        return "\n" +"ID: "+this.id+"\n"+"Name: "+this.name+"\n"+"Employer: "+this.employer.getValue()+"\n"+
-                "Location: "+this.location.getValue()+"\n"+"Position Type: "+this.positionType.getValue()+"\n"+
-                "Core Competency: "+this.coreCompetency.getValue()+"\n";
+
+        return "\n" + "ID: " + this.id + "\n" + "Name: " + field(this.name) + "\n" + "Employer: " + field(this.employer.getValue()) + "\n" +
+                "Location: " + field(this.location.getValue()) + "\n" + "Position Type: " + field(this.positionType.getValue())+ "\n" +
+                "Core Competency: " + field(this.coreCompetency.getValue()) + "\n";
+    }
+
+    private static String field(String c){
+        if(c.equals("")){
+            return "Data not available";
+        }
+        return c;
     }
 
 }
